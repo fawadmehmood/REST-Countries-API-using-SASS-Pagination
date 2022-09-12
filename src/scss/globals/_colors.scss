@@ -1,0 +1,23 @@
+:root {
+   --bgDark: hsl(207, 26%, 17%);
+   --bgLight: hsl(0, 0%, 98%);
+   --textLight: hsl(200, 15%, 8%);
+   --textDark: hsl(0, 0%, 100%);
+   --elemLight: hsl(0, 0%, 100%);
+   --elemDark: hsl(209, 23%, 22%);
+   --inputLight: hsl(0, 0%, 52%);
+   --background: var(--bgLight);
+   --color: var(--textLight);
+   --elem: var(--elemLight);
+}
+
+
+body.light {
+    background-color: var(--bgLight);
+    color: var(--textLight);
+}
+
+body.dark {
+    background-color: var(--bgDark);
+    color: var(--textDark);
+}

@@ -1,0 +1,27 @@
+header {
+  background-color: var(--elem);
+}
+header .headerWrapper {
+  min-height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header h1 {
+  font-size: 20px;
+  font-weight: 800;
+}
+header .toggleBtn {
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: black;
+  background-color: transparent;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+header .toggleBtn * {
+  margin: 0 5px;
+}/*# sourceMappingURL=header.css.map */
