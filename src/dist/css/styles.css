@@ -14,7 +14,7 @@ html {
 body {
   font-family: "Nunito Sans", sans-serif;
   background: var(--background);
-  color: var(--color);
+  color: var(--colorText);
 }
 
 :root {
@@ -26,18 +26,14 @@ body {
   --elemDark: hsl(209, 23%, 22%);
   --inputLight: hsl(0, 0%, 52%);
   --background: var(--bgLight);
-  --color: var(--textLight);
+  --colorText: var(--textLight);
   --elem: var(--elemLight);
 }
 
-body.light {
-  background-color: var(--bgLight);
-  color: var(--textLight);
-}
-
-body.dark {
-  background-color: var(--bgDark);
-  color: var(--textDark);
+.dark {
+  --background: var(--bgDark);
+  --colorText: var(--textDark);
+  --elem: var(--elemDark);
 }
 
 .container {
