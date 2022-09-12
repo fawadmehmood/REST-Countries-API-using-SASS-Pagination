@@ -34,10 +34,4 @@ body {
   --background: var(--bgDark);
   --colorText: var(--textDark);
   --elem: var(--elemDark);
-}
-
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 20px;
 }/*# sourceMappingURL=styles.css.map */

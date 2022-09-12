@@ -1,11 +1,21 @@
+header .headerWrapper {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header .headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 header {
   background-color: var(--elem);
 }
 header .headerWrapper {
   min-height: 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 header h1 {
   font-size: 20px;

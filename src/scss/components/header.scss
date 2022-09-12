@@ -1,13 +1,14 @@
 @use "../utils/mixin" as *;
+@use '../globals/layout';
+
 
 header{
    background-color: var(--elem);
 
    .headerWrapper {
+    @extend %container;  
     min-height: 60px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @extend %flex;
    }
 
    h1 {
@@ -20,7 +21,7 @@ header{
      font-weight: 600;
      color: var(--colorText);
  
-     * {
+    & * {
         margin: 0 5px;
     }
    }
