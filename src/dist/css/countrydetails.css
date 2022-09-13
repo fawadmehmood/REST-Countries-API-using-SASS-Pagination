@@ -5,8 +5,76 @@
   padding: 0 20px;
 }
 
+.country .countryInfo p {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+
+.country .countryInfo p span {
+  font-weight: 300;
+}
+
 .contryDetail {
   padding: auto;
-  padding-top: 20px;
+  padding-top: 50px;
   padding-bottom: 20px;
+}
+.contryDetail .detailPageBtn {
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: var(--elem);
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 14px;
+  padding: 7px 30px;
+  font-weight: 600;
+  color: var(--cololrText);
+}
+.contryDetail .detailPageBtn i {
+  margin-right: 5px;
+}
+
+.country {
+  display: flex;
+  gap: 120px;
+  padding-top: 50px;
+}
+.country .flagWrapper {
+  width: 45%;
+}
+.country .flagWrapper img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+.country .countryInfo {
+  flex: 1;
+  padding-top: 30px;
+}
+.descCountry {
+  padding: 20px 0px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.borderCountries {
+  display: flex;
+  gap: 10px;
+}
+.borderCountries span {
+  font-weight: 600;
+}
+.borderCountries .countriesList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+}
+.borderCountries .countriesList a {
+  text-align: center;
+  font-weight: 300;
 }/*# sourceMappingURL=countrydetails.css.map */

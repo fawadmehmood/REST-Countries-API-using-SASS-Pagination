@@ -1,9 +1,9 @@
-@mixin btnStyle {
+@mixin btnStyle($bgColor) {
     outline: none;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color: transparent;
+    background-color: $bgColor;
     font-family: 'Nunito Sans', sans-serif;
     font-size: 14px;
 }

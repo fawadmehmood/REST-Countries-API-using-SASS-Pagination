@@ -17,7 +17,7 @@ header{
    }
 
    .toggleBtn {
-     @include btnStyle;
+     @include btnStyle(transparent);
      font-weight: 600;
      color: var(--colorText);
  
