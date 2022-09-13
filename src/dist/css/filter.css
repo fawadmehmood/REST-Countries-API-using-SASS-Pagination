@@ -1,0 +1,61 @@
+.filter {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.filter, .filter .inputWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter {
+  padding: auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.filter .inputWrapper {
+  position: relative;
+}
+.filter .inputWrapper input {
+  width: 300px;
+  min-height: 35px;
+  padding-left: 55px;
+  outline: none;
+  border: none;
+  background-color: var(--elem);
+  color: var(--colorText);
+  font-family: "Nunito Sans", sans-serif;
+}
+.filter .inputWrapper span {
+  position: absolute;
+  left: 20px;
+  font-size: 12px;
+}
+.filter .inputWrapper span i {
+  vertical-align: bottom;
+}
+.filter select {
+  width: 200px;
+  height: 35px;
+  outline: none;
+  border: none;
+  padding: 10px;
+  font-family: "Nunito Sans", sans-serif;
+  background-color: var(--elem);
+  color: var(--colorText);
+}
+
+::-moz-placeholder {
+  color: var(--colorText);
+}
+
+:-ms-input-placeholder {
+  color: var(--colorText);
+}
+
+::placeholder {
+  color: var(--colorText);
+}/*# sourceMappingURL=filter.css.map */

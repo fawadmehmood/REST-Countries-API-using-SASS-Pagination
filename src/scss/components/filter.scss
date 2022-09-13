@@ -1,0 +1,52 @@
+@use '../globals/layout';
+
+.filter {
+  @extend %container;
+   @extend %flex;
+   padding: auto {
+     top:  30px;
+     bottom: 30px;
+   };
+
+   .inputWrapper {
+    position: relative;
+    @extend %flex;
+
+    input {
+        width: 300px;
+        min-height: 35px;
+        padding-left: 55px;
+        outline: none;
+        border: none;
+        background-color: var(--elem);
+        color: var(--colorText);
+        font-family: 'Nunito Sans', sans-serif;
+    }
+
+    span {
+        position: absolute;
+        left: 20px;
+        font-size: 12px;
+        i {
+           vertical-align: bottom;
+        }
+    }
+
+   }
+
+   select {
+    width: 200px;
+    height: 35px;
+    outline: none;
+    border: none;
+    padding: 10px;
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: var(--elem);
+    color: var(--colorText);
+   }
+}
+
+::placeholder { 
+    color: var(--colorText);
+  }
+  
