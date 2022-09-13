@@ -23,10 +23,19 @@ const ThemeSwitcher = () => {
     switchTheme("light");
   };
 
+  const themeIcon =
+    theme === "light" ? (
+      <i className="fa-regular fa-sun"></i>
+    ) : (
+      <i className="fa-regular fa-moon"></i>
+    );
+
+  const themeName = theme === "light" ? "Light" : "Dark";
+
   return (
     <button className="toggleBtn" onClick={toggleTheme}>
-      <i className="fa-regular fa-sun"></i>
-      Dark Mode
+      {themeIcon}
+      {themeName} Mode
     </button>
   );
 };
