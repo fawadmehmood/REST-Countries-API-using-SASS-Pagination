@@ -1,0 +1,9 @@
+@use "../globals/layout";
+
+.contryDetail {
+    @extend %container;
+    padding: auto {
+        top: 20px;
+        bottom: 20px
+    }
+}
