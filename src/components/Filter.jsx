@@ -2,6 +2,8 @@ import React from "react";
 import "../dist/css/filter.css";
 
 const Filter = () => {
+  console.log("rerender Filter");
+
   return (
     <div className="filter">
       <div className="inputWrapper">
@@ -10,9 +12,9 @@ const Filter = () => {
           <i className="fa-solid fa-magnifying-glass"></i>
         </span>
       </div>
-      <label for="regions"></label>
+      <label htmlFor="regions"></label>
       <select name="regions">
-        <option selected disabled>
+        <option defaultValue disabled>
           Filter by region
         </option>
         <option value="All">All</option>
