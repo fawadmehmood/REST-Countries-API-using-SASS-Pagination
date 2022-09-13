@@ -3,10 +3,11 @@ import axios from "axios";
 import "../dist/css/countries.css";
 import Card from "./Card";
 
-const Countries = ({ searchCountry }) => {
+const Countries = ({ searchedCountry, region }) => {
   //   console.log("rerender Countries Component");
 
   const [countriesList, setCountries] = useState();
+
   let renderCountries;
 
   const getCountries = async () => {
@@ -28,7 +29,15 @@ const Countries = ({ searchCountry }) => {
   }, []);
 
   if (countriesList) {
-    renderCountries = countriesList.map((country) => {
+    const filtredByRegion = countriesList.filter((country) =>
+      country.region.includes(region)
+    );
+
+    const filtredByName = filtredByRegion.filter((country) =>
+      country.name.toLowerCase().includes(searchedCountry.toLowerCase())
+    );
+
+    renderCountries = filtredByName.map((country) => {
       let { name, population, region, capital } = country;
       return (
         <Card

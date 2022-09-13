@@ -1,7 +1,7 @@
 import React from "react";
 import "../dist/css/filter.css";
 
-const Filter = ({ searchChange }) => {
+const Filter = ({ searchChange, selectRegion }) => {
   console.log("rerender Filter");
 
   return (
@@ -17,11 +17,11 @@ const Filter = ({ searchChange }) => {
         </span>
       </div>
       <label htmlFor="regions"></label>
-      <select name="regions">
+      <select name="regions" onChange={selectRegion}>
         <option defaultValue disabled>
           Filter by region
         </option>
-        <option value="All">All</option>
+        <option value="">All</option>
         <option value="Africa">Africa</option>
         <option value="America">America</option>
         <option value="Asia">Asia</option>

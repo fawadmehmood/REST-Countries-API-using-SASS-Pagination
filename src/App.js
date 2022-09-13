@@ -7,17 +7,22 @@ import "./dist/css/styles.css";
 
 function App() {
   const [searchVal, setSearchVal] = useState("");
+  const [region, setRegion] = useState("");
   console.log("rerender App");
 
   const searchChange = (e) => {
     setSearchVal(e.target.value);
   };
 
+  const filterRegion = (e) => {
+    setRegion(e.target.value);
+  };
+
   return (
     <div className="App">
       <Header />
-      <Filter searchChange={searchChange} />
-      <Countries searchCountry={searchVal} />
+      <Filter searchChange={searchChange} selectRegion={filterRegion} />
+      <Countries searchedCountry={searchVal} region={region} />
     </div>
   );
 }

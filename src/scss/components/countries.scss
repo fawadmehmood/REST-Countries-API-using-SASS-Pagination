@@ -4,22 +4,26 @@
     @extend %container;
     display: grid;
     grid-template-columns: repeat(auto-fit,  minmax(250px, 1fr));
+    // grid-template-columns: repeat(4,minmax(0,1fr));
     gap: 20px;
 }
 
 
 .card {
     background-color: var(--elem);
-    box-shadow: rgb(0 0 0 / 10%) 0px 1px 5px 1px;
+    // box-shadow: rgb(0 0 0 / 10%) 0px 1px 5px 1px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0/.1),0 4px 6px -4px rgb(0 0 0/.1);
     border-radius: 5px;
 
 }
 
 
 .countryImgWrapper img {
-    width:  275px;
+    // width:  275px;
+    width: 100%;
     height: 150px;
     object-fit: cover;
+    object-position: center;
     border-radius: 5px 5px 0px 0px;
 }
 
