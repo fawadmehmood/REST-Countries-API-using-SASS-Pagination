@@ -3,7 +3,9 @@ import axios from "axios";
 import "../dist/css/countries.css";
 import Card from "./Card";
 
-const Countries = () => {
+const Countries = ({ searchCountry }) => {
+  //   console.log("rerender Countries Component");
+
   const [countriesList, setCountries] = useState();
   let renderCountries;
 
@@ -50,4 +52,4 @@ const Countries = () => {
   );
 };
 
-export default Countries;
+export default React.memo(Countries);

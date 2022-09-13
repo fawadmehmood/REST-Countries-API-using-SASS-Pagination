@@ -1,13 +1,17 @@
 import React from "react";
 import "../dist/css/filter.css";
 
-const Filter = () => {
+const Filter = ({ searchChange }) => {
   console.log("rerender Filter");
 
   return (
     <div className="filter">
       <div className="inputWrapper">
-        <input type="search" placeholder="Search for a country..." />
+        <input
+          type="search"
+          placeholder="Search for a country..."
+          onChange={searchChange}
+        />
         <span>
           <i className="fa-solid fa-magnifying-glass"></i>
         </span>

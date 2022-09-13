@@ -2,7 +2,7 @@ import React from "react";
 import "../dist/css/countries.css";
 
 const Card = ({ imgSrc, name, population, region, capital }) => {
-  console.log(imgSrc);
+  console.log("card Rerenderd");
   return (
     <div className="card">
       <div className="countryImgWrapper">
@@ -24,4 +24,4 @@ const Card = ({ imgSrc, name, population, region, capital }) => {
   );
 };
 
-export default Card;
+export default React.memo(Card);
