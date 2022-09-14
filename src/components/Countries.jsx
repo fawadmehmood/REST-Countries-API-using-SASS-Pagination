@@ -1,14 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import "../dist/css/countries.css";
 import Card from "./Card";
+import Pagination from "./Pagination";
 
 const Countries = ({ searchedCountry, region }) => {
-  //   console.log("rerender Countries Component");
+  console.log("rerender Countries Component");
 
   const [countriesList, setCountries] = useState();
 
+  // User is currently on this page
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const [pageInput, setPageInput] = useState(1);
+
+  // No of Records to be displayed on each page
+  const [recordsPerPage] = useState(12);
+
+  const indexOfLastRecord = currentPage * recordsPerPage;
+  const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
+
+  // Records to be displayed on the current page
+
   let renderCountries;
+  let currentRecords;
+  let nPages;
 
   const getCountries = async () => {
     const response = await axios.get(
@@ -29,6 +45,9 @@ const Countries = ({ searchedCountry, region }) => {
   }, []);
 
   if (countriesList) {
+    currentRecords = countriesList.slice(indexOfFirstRecord, indexOfLastRecord);
+    nPages = Math.ceil(countriesList.length / recordsPerPage);
+
     const filtredByRegion = countriesList.filter((country) =>
       country.region.includes(region)
     );
@@ -37,7 +56,7 @@ const Countries = ({ searchedCountry, region }) => {
       country.name.toLowerCase().includes(searchedCountry.toLowerCase())
     );
 
-    renderCountries = filtredByName.map((country) => {
+    renderCountries = currentRecords.map((country) => {
       let { name, population, region, capital } = country;
       return (
         <Card
@@ -52,11 +71,57 @@ const Countries = ({ searchedCountry, region }) => {
     });
   }
 
+  const nextPage = useCallback(() => {
+    if (currentPage !== nPages) {
+      setCurrentPage(currentPage + 1);
+      setPageInput(currentPage + 1);
+    }
+  }, [currentPage]);
+
+  const prevPage = useCallback(() => {
+    if (currentPage !== 1) {
+      setCurrentPage(currentPage - 1);
+      setPageInput(currentPage - 1);
+    }
+  }, [currentPage]);
+
+  const handlePageInput = useCallback(
+    (e) => {
+      const val = e.target.value;
+      if (parseInt(val) > nPages || parseInt(val) <= 0) {
+        setPageInput(nPages);
+        return;
+      }
+      setPageInput(val);
+    },
+    [pageInput]
+  );
+
+  const handleEnterKey = useCallback(
+    (e) => {
+      if (e.key === "Enter" || e.keyCode === 13) {
+        if (e.target.value.length !== 0) {
+          setCurrentPage(pageInput);
+        }
+      }
+    },
+    [pageInput]
+  );
+
   return (
     <>
       {countriesList && (
         <div className="countriesContainer">{renderCountries}</div>
       )}
+      <Pagination
+        nextPage={nextPage}
+        prevPage={prevPage}
+        nPages={nPages}
+        currentPage={currentPage}
+        handleEnterKey={handleEnterKey}
+        handlePageInput={handlePageInput}
+        pageInput={pageInput}
+      />
     </>
   );
 };
