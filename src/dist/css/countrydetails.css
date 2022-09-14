@@ -28,6 +28,7 @@
   background-color: var(--elem);
   font-family: "Nunito Sans", sans-serif;
   font-size: 14px;
+  transition: 0.3s ease-in-out;
   padding: 7px 30px;
   font-weight: 600;
   color: var(--cololrText);

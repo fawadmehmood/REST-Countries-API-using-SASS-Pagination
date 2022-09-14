@@ -20,7 +20,7 @@
     border-radius: 5px;
     text-decoration: none;
     color: var(--colorText);
-    transition: 0.3s ease;
+    transition: 0.3s ease-in-out;
 
     &:hover {
         transform: scale(1.04);

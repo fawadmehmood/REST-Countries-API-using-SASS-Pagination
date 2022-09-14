@@ -3,11 +3,13 @@ import axios from "axios";
 import "../dist/css/countries.css";
 import Card from "./Card";
 import Pagination from "./Pagination";
+import LoadingSpinner from "./LoadingSpinner";
 
 const Countries = ({ searchedCountry, region }) => {
   console.log("rerender Countries Component");
 
   const [countriesList, setCountries] = useState();
+  const [isLoaded, setIsLoaded] = useState(false);
 
   // User is currently on this page
   const [currentPage, setCurrentPage] = useState(1);
@@ -38,13 +40,15 @@ const Countries = ({ searchedCountry, region }) => {
     getCountries()
       .then((data) => {
         setCountries(data);
+        setIsLoaded(true);
       })
       .catch((err) => {
         console.log(err.message);
+        setIsLoaded(true);
       });
   }, []);
 
-  if (countriesList) {
+  if (countriesList && isLoaded) {
     const filtredByRegion = countriesList.filter((country) =>
       country.region.includes(region)
     );
@@ -107,9 +111,13 @@ const Countries = ({ searchedCountry, region }) => {
     [pageInput]
   );
 
+  const spinner = !isLoaded ? <LoadingSpinner /> : "";
+
   return (
     <>
-      {countriesList && (
+      {spinner}
+
+      {countriesList && isLoaded && (
         <div className="countriesContainer">{renderCountries}</div>
       )}
       <Pagination

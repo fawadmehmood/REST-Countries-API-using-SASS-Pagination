@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../dist/css/countrydetails.css";
+import LoadingSpinner from "./LoadingSpinner";
 
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -8,6 +9,8 @@ import axios from "axios";
 const CountryDetail = () => {
   const { countryName } = useParams();
   const [country, setCountry] = useState("");
+  const [isLoaded, setIsLoaded] = useState(false);
+
   let languages;
   let borderCountries;
 
@@ -24,10 +27,11 @@ const CountryDetail = () => {
   useEffect(() => {
     getCountryDetail()
       .then((data) => {
-        console.log([data]);
         Array.isArray(data) ? setCountry(data[0]) : setCountry([data][0]);
+        setIsLoaded(true);
       })
       .catch((err) => {
+        setIsLoaded(true);
         console.log(err.message);
       });
   }, [countryName]);
@@ -56,9 +60,12 @@ const CountryDetail = () => {
     });
   }
 
+  const spinner = !isLoaded ? <LoadingSpinner /> : "";
+
   return (
     <>
-      {country && (
+      {spinner}
+      {country && isLoaded && (
         <div className="contryDetail">
           <Link to="/" className="detailPageBtn">
             <i className="fa-solid fa-arrow-left"></i> Back

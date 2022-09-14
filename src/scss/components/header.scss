@@ -4,6 +4,7 @@
 
 header{
    background-color: var(--elem);
+   transition: 0.3s ease-in-out;
 
    .headerWrapper {
     @extend %container;  

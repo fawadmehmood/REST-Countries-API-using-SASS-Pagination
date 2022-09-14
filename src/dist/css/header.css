@@ -13,6 +13,7 @@ header .headerWrapper {
 
 header {
   background-color: var(--elem);
+  transition: 0.3s ease-in-out;
 }
 header .headerWrapper {
   min-height: 60px;
@@ -29,6 +30,7 @@ header .toggleBtn {
   background-color: transparent;
   font-family: "Nunito Sans", sans-serif;
   font-size: 14px;
+  transition: 0.3s ease-in-out;
   font-weight: 600;
   color: var(--colorText);
 }
