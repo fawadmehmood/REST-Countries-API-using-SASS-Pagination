@@ -45,9 +45,6 @@ const Countries = ({ searchedCountry, region }) => {
   }, []);
 
   if (countriesList) {
-    currentRecords = countriesList.slice(indexOfFirstRecord, indexOfLastRecord);
-    nPages = Math.ceil(countriesList.length / recordsPerPage);
-
     const filtredByRegion = countriesList.filter((country) =>
       country.region.includes(region)
     );
@@ -55,6 +52,8 @@ const Countries = ({ searchedCountry, region }) => {
     const filtredByName = filtredByRegion.filter((country) =>
       country.name.toLowerCase().includes(searchedCountry.toLowerCase())
     );
+    currentRecords = filtredByName.slice(indexOfFirstRecord, indexOfLastRecord);
+    nPages = Math.ceil(filtredByName.length / recordsPerPage);
 
     renderCountries = currentRecords.map((country) => {
       let { name, population, region, capital } = country;
