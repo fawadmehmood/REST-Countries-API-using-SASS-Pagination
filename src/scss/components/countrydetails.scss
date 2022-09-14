@@ -23,7 +23,7 @@
 
 .country {
     display: flex;
-    gap: 120px;
+    gap: calc(35px + 5vw);
     padding-top: 50px;
 
     .flagWrapper {
@@ -32,7 +32,13 @@
             width: 100%;
             object-fit: contain;
             object-position: center;
+            min-height: 100%;
         }
+
+        @include breakpoint(md) {
+           width: 100%;
+        }
+    
     }
 
 
@@ -47,6 +53,12 @@
             }
         }
     }
+
+    @include breakpoint(md) {
+        flex-direction: column;
+        gap: 0px;
+    }
+
 }
 
 .descCountry {
@@ -54,6 +66,10 @@
     display: flex;
     justify-content: space-between;
     gap: 40px;
+
+    @include breakpoint(sm) {
+        flex-direction: column;
+    }
 }
 
 .borderCountries {
@@ -65,8 +81,9 @@
     }
     
     & .countriesList{
+        flex: 1;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
         gap: 7px;
 
         & a {
@@ -74,6 +91,10 @@
               font-weight: 300;
             }
 
+    }
+
+    @include breakpoint(cus) {
+        flex-direction: column;
     }
 
 }

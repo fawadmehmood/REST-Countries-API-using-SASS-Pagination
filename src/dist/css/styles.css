@@ -30,13 +30,17 @@ body {
   --elemLight: hsl(0, 0%, 100%);
   --elemDark: hsl(209, 23%, 22%);
   --inputLight: hsl(0, 0%, 52%);
+  --activeDark: hsl(210, 35%, 39%);
+  --activeLight: hsl(201, 68%, 85%);
   --background: var(--bgLight);
   --colorText: var(--textLight);
   --elem: var(--elemLight);
+  --activeHover: var(--activeLight);
 }
 
 .dark {
   --background: var(--bgDark);
   --colorText: var(--textDark);
   --elem: var(--elemDark);
+  --activeHover: var(--activeDark);
 }/*# sourceMappingURL=styles.css.map */
