@@ -13,12 +13,12 @@
 
 .filter {
   padding: auto;
-  padding-top: 15px;
+  padding-top: 40px;
   padding-bottom: 15px;
 }
 .filter .inputWrapper {
   position: relative;
-  width: 300px;
+  width: 330px;
 }
 @media (max-width: 576px) {
   .filter .inputWrapper {
@@ -27,7 +27,7 @@
 }
 .filter .inputWrapper input {
   width: 100%;
-  min-height: 35px;
+  min-height: 40px;
   padding-left: 55px;
   padding-right: 10px;
   outline: none;
@@ -47,7 +47,7 @@
 }
 .filter select {
   width: 200px;
-  height: 35px;
+  height: 40px;
   outline: none;
   border: none;
   padding: 10px;

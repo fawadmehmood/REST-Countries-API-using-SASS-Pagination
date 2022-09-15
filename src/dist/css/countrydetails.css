@@ -33,6 +33,9 @@
   font-weight: 600;
   color: var(--cololrText);
 }
+.contryDetail .detailPageBtn:hover {
+  background-color: var(--activeHover);
+}
 .contryDetail .detailPageBtn i {
   margin-right: 5px;
 }

@@ -16,7 +16,7 @@ header {
   transition: 0.3s ease-in-out;
 }
 header .headerWrapper {
-  min-height: 60px;
+  min-height: 70px;
 }
 header h1 {
   font-size: 20px;
@@ -33,7 +33,11 @@ header .toggleBtn {
   transition: 0.3s ease-in-out;
   font-weight: 600;
   color: var(--colorText);
+  padding: 10px 15px;
+}
+header .toggleBtn:hover {
+  background-color: var(--activeHover);
 }
 header .toggleBtn * {
-  margin: 0 5px;
+  margin: 0 8px;
 }/*# sourceMappingURL=header.css.map */
