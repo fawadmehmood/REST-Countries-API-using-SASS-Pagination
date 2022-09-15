@@ -4,7 +4,7 @@
 
 ## Links
 
-- Live Demo: (https://rest-countries-api-using-sass-and-pagination.vercel.app/)
+- Live Demo: https://rest-countries-api-using-sass-and-pagination.vercel.app/
 
 ## Overview
 
