@@ -3,7 +3,6 @@ import "../dist/css/countries.css";
 import { Link } from "react-router-dom";
 
 const Card = ({ imgSrc, name, population, region, capital }) => {
-  console.log("card Rerenderd");
   return (
     <Link to={`/country/${name}`} className="card">
       <div>

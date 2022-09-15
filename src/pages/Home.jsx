@@ -5,7 +5,6 @@ import Countries from "./Countries";
 const Home = () => {
   const [searchVal, setSearchVal] = useState("");
   const [region, setRegion] = useState("");
-  console.log("rerender App");
 
   const searchChange = (e) => {
     setSearchVal(e.target.value);

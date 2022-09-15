@@ -2,8 +2,6 @@ import React from "react";
 import "../dist/css/filter.css";
 
 const Filter = ({ searchChange, selectRegion }) => {
-  console.log("rerender Filter");
-
   return (
     <div className="filter">
       <div className="inputWrapper">

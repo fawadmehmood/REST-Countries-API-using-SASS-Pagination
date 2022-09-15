@@ -1,10 +1,9 @@
-import React, { useEffect, useState, useCallback } from "react";
-import axios from "axios";
+import React, { useState, useCallback } from "react";
 import "../dist/css/countries.css";
 import { useFetch } from "../hooks/useFetch";
-import Card from "./Card";
+import Card from "../components/Card";
 import Pagination from "./Pagination";
-import LoadingSpinner from "./LoadingSpinner";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const Countries = ({ searchedCountry, region }) => {
   const {
@@ -14,8 +13,6 @@ const Countries = ({ searchedCountry, region }) => {
   } = useFetch(
     "https://restcountries.com/v2/all?fields=name,capital,region,population,flags"
   );
-
-  // console.log(countriesList, loading);
 
   // User is currently on this page
   const [currentPage, setCurrentPage] = useState(1);

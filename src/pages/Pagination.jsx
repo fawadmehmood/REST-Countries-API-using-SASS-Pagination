@@ -10,8 +10,6 @@ const Pagination = ({
   handlePageInput,
   pageInput,
 }) => {
-  console.log("rerenderedd Pagination");
-
   const disableBtn = (pageNum) =>
     parseInt(currentPage) === pageNum ? "disabled" : "";
 

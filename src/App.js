@@ -1,22 +1,12 @@
-import logo from "./logo.svg";
-import Home from "./components/Home";
-import Header from "./components/Header";
-import CountryDetail from "./components/CountryDetail";
-
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import Header from "./pages/Header";
 import "./dist/css/styles.css";
+import Router from "./Routes/Router";
 
 function App() {
   return (
     <>
       <Header />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/country/:countryName" element={<CountryDetail />} />
-        </Routes>
-      </BrowserRouter>
+      <Router />
     </>
   );
 }

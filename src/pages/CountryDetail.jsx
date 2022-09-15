@@ -1,16 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "../dist/css/countrydetails.css";
-import LoadingSpinner from "./LoadingSpinner";
+import LoadingSpinner from "../components/LoadingSpinner";
 import { useFetch } from "../hooks/useFetch";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 
 const CountryDetail = () => {
   const { countryName } = useParams();
-  // const [country, setCountry] = useState();
-  // const [isLoaded, setIsLoaded] = useState(false);
-  console.log("rerender details");
   let urltype = "name";
   if (countryName.length <= 3) urltype = "alpha";
 
@@ -23,30 +19,8 @@ const CountryDetail = () => {
     countryName
   );
 
-  console.log(country, loading);
-
   let languages;
   let borderCountries;
-
-  const getCountryDetail = async () => {
-    if (countryName.length <= 3) urltype = "alpha";
-    const response = await axios.get(
-      `https://restcountries.com/v2/${urltype}/${countryName}`
-    );
-    if (response.status === 200) return response.data;
-  };
-
-  // useEffect(() => {
-  //   getCountryDetail()
-  //     .then((data) => {
-  //       Array.isArray(data) ? setCountry(data[0]) : setCountry([data][0]);
-  //       setIsLoaded(true);
-  //     })
-  //     .catch((err) => {
-  //       setIsLoaded(true);
-  //       console.log(err.message);
-  //     });
-  // }, [countryName]);
 
   if (country && !loading) {
     languages = (
