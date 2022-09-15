@@ -1,20 +1,32 @@
 import React, { useEffect, useState } from "react";
 import "../dist/css/countrydetails.css";
 import LoadingSpinner from "./LoadingSpinner";
-
+import { useFetch } from "../hooks/useFetch";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const CountryDetail = () => {
   const { countryName } = useParams();
-  const [country, setCountry] = useState("");
-  const [isLoaded, setIsLoaded] = useState(false);
+  // const [country, setCountry] = useState();
+  // const [isLoaded, setIsLoaded] = useState(false);
+  console.log("rerender details");
+  let urltype = "name";
+  if (countryName.length <= 3) urltype = "alpha";
+
+  const {
+    fetchedData: country,
+    loading,
+    error,
+  } = useFetch(
+    `https://restcountries.com/v2/${urltype}/${countryName}`,
+    countryName
+  );
+
+  console.log(country, loading);
 
   let languages;
   let borderCountries;
-
-  let urltype = "name";
 
   const getCountryDetail = async () => {
     if (countryName.length <= 3) urltype = "alpha";
@@ -24,19 +36,19 @@ const CountryDetail = () => {
     if (response.status === 200) return response.data;
   };
 
-  useEffect(() => {
-    getCountryDetail()
-      .then((data) => {
-        Array.isArray(data) ? setCountry(data[0]) : setCountry([data][0]);
-        setIsLoaded(true);
-      })
-      .catch((err) => {
-        setIsLoaded(true);
-        console.log(err.message);
-      });
-  }, [countryName]);
+  // useEffect(() => {
+  //   getCountryDetail()
+  //     .then((data) => {
+  //       Array.isArray(data) ? setCountry(data[0]) : setCountry([data][0]);
+  //       setIsLoaded(true);
+  //     })
+  //     .catch((err) => {
+  //       setIsLoaded(true);
+  //       console.log(err.message);
+  //     });
+  // }, [countryName]);
 
-  if (country) {
+  if (country && !loading) {
     languages = (
       <span>
         {country.languages
@@ -60,12 +72,13 @@ const CountryDetail = () => {
     });
   }
 
-  const spinner = !isLoaded ? <LoadingSpinner /> : "";
+  const spinner = loading ? <LoadingSpinner /> : "";
 
   return (
     <>
+      {error && <div>{error}</div>}
       {spinner}
-      {country && isLoaded && (
+      {country && !loading && (
         <div className="contryDetail">
           <Link to="/" className="detailPageBtn">
             <i className="fa-solid fa-arrow-left"></i> Back
@@ -102,7 +115,7 @@ const CountryDetail = () => {
                   </p>
 
                   <p>
-                    Currencies : <span>{country.currencies[0].name}</span>
+                    Currencies : <span>{country.currencies?.[0].name}</span>
                   </p>
                   <p>Languages : {languages}</p>
                 </div>

@@ -15,7 +15,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/country/:countryName" element={<CountryDetail />} />
-          {/* <Route path="Countries-list/details/:name" element = {<Coun/>}/> */}
         </Routes>
       </BrowserRouter>
     </>

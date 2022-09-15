@@ -1,15 +1,21 @@
 import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import "../dist/css/countries.css";
+import { useFetch } from "../hooks/useFetch";
 import Card from "./Card";
 import Pagination from "./Pagination";
 import LoadingSpinner from "./LoadingSpinner";
 
 const Countries = ({ searchedCountry, region }) => {
-  console.log("rerender Countries Component");
+  const {
+    fetchedData: countriesList,
+    loading,
+    error,
+  } = useFetch(
+    "https://restcountries.com/v2/all?fields=name,capital,region,population,flags"
+  );
 
-  const [countriesList, setCountries] = useState();
-  const [isLoaded, setIsLoaded] = useState(false);
+  // console.log(countriesList, loading);
 
   // User is currently on this page
   const [currentPage, setCurrentPage] = useState(1);
@@ -28,27 +34,7 @@ const Countries = ({ searchedCountry, region }) => {
   let currentRecords;
   let nPages;
 
-  const getCountries = async () => {
-    const response = await axios.get(
-      "https://restcountries.com/v2/all?fields=name,capital,region,population,flags"
-    );
-
-    if (response.status === 200) return response.data;
-  };
-
-  useEffect(() => {
-    getCountries()
-      .then((data) => {
-        setCountries(data);
-        setIsLoaded(true);
-      })
-      .catch((err) => {
-        console.log(err.message);
-        setIsLoaded(true);
-      });
-  }, []);
-
-  if (countriesList && isLoaded) {
+  if (countriesList && !loading) {
     const filtredByRegion = countriesList.filter((country) =>
       country.region.includes(region)
     );
@@ -111,13 +97,14 @@ const Countries = ({ searchedCountry, region }) => {
     [pageInput]
   );
 
-  const spinner = !isLoaded ? <LoadingSpinner /> : "";
+  const spinner = loading ? <LoadingSpinner /> : "";
 
   return (
     <>
-      {spinner}
+      {error && <div>{error}</div>}
 
-      {countriesList && isLoaded && (
+      {spinner}
+      {countriesList && !loading && (
         <div className="countriesContainer">{renderCountries}</div>
       )}
       <Pagination

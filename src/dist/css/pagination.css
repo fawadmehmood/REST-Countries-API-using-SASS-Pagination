@@ -40,4 +40,9 @@
 }
 .paginationBtns .btnPag:hover {
   background-color: var(--activeHover);
+}
+.paginationBtns .btnPag:disabled {
+  opacity: 0.5;
+  cursor: default;
+  background-color: none;
 }/*# sourceMappingURL=pagination.css.map */
