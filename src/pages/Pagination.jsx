@@ -19,6 +19,7 @@ const Pagination = ({
 
       <label aria-label="Enter page Number" htmlFor="pageInput"></label>
       <input
+        id="pageInput"
         name="pageInput"
         type="number"
         value={pageInput}

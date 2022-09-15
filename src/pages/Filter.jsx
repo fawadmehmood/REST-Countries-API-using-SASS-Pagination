@@ -15,7 +15,12 @@ const Filter = ({ searchChange, selectRegion }) => {
         </span>
       </div>
       <label htmlFor="regions"></label>
-      <select name="regions" onChange={selectRegion}>
+      <select
+        id="regions"
+        name="regions"
+        onChange={selectRegion}
+        aria-label="Select region"
+      >
         <option defaultValue disabled>
           Filter by region
         </option>
