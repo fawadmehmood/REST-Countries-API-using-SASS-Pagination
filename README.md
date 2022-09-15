@@ -4,7 +4,7 @@
 
 ## Links
 
-- Live Demo:
+- Live Demo: (https://rest-countries-api-using-sass-and-pagination.vercel.app/)
 
 ## Overview
 
@@ -22,4 +22,4 @@ Users should be able to:
 ### Main Build:
 
 - React JS
-- Sass
+- SASS
