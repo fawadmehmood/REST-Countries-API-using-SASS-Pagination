@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Card = ({ imgSrc, name, population, region, capital }) => {
   return (
-    <Link to={`/country/${name}`} className="card">
+    <Link to={`/country/${name.replace(/\s/g, "%20")}`} className="card">
       <div>
         <div className="countryImgWrapper">
           <img src={imgSrc} alt={`${name} flag`} />
