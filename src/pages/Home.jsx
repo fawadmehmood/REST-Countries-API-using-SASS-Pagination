@@ -15,10 +15,10 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <main>
       <Filter searchChange={searchChange} selectRegion={filterRegion} />
       <Countries searchedCountry={searchVal} region={region} />
-    </div>
+    </main>
   );
 };
 
