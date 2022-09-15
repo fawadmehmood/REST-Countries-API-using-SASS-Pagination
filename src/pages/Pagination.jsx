@@ -17,7 +17,9 @@ const Pagination = ({
     <div className="paginationBtns">
       <span>Page</span>
 
+      <label aria-label="Enter page Number" htmlFor="pageInput"></label>
       <input
+        name="pageInput"
         type="number"
         value={pageInput}
         onChange={handlePageInput}
@@ -26,6 +28,7 @@ const Pagination = ({
 
       <span>of {nPages}</span>
       <button
+        aria-label="Previous Page"
         className="btnPag btnPrev"
         onClick={prevPage}
         disabled={disableBtn(1)}
@@ -33,6 +36,7 @@ const Pagination = ({
         <i className="fa fas fa-chevron-left pagination-arrow"></i>
       </button>
       <button
+        aria-label="Next Page"
         className="btnPag btnNext"
         onClick={nextPage}
         disabled={disableBtn(nPages)}

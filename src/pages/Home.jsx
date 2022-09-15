@@ -15,7 +15,7 @@ const Home = () => {
   };
 
   return (
-    <div className="App">
+    <div>
       <Filter searchChange={searchChange} selectRegion={filterRegion} />
       <Countries searchedCountry={searchVal} region={region} />
     </div>
